@@ -9,13 +9,14 @@
 - getAllParents(id). Принимает id элемента и возвращает массив из цепочки родительских элементов, начиная от самого элемента, чей id был передан в аргументе и до корневого элемента, т.е. должен получиться путь элемента наверх дерева через цепочку родителей к корню дерева. В результате getAllParents ПОРЯДОК ЭЛЕМЕНТОВ ВАЖЕН!
 
 ИСХОДНЫЕ ДАННЫЕ:
+```
 class TreeStore {}
 
 const items = [
     { id: 1, parent: 'root' },
     { id: 2, parent: 1, type: 'test' },
     { id: 3, parent: 1, type: 'test' },
-
+    
     { id: 4, parent: 2, type: 'test' },
     { id: 5, parent: 2, type: 'test' },
     { id: 6, parent: 2, type: 'test' },
@@ -24,17 +25,14 @@ const items = [
     { id: 8, parent: 4, type: null },
 ];
 const ts = new TreeStore(items);
+```
 
 
  Примеры использования:
- *  - ts.getAll() // [{"id":1,"parent":"root"},{"id":2,"parent":1,"type":"test"},{"id":3,"parent":1,"type":"test"},{"id":4,"parent":2,"type":"test"},{"id":5,"parent":2,"type":"test"},{"id":6,"parent":2,"type":"test"},{"id":7,"parent":4,"type":null},{"id":8,"parent":4,"type":null}]
- *
- *  - ts.getItem(7) // {"id":7,"parent":4,"type":null}
- *
- *  - ts.getChildren(4) // [{"id":7,"parent":4,"type":null},{"id":8,"parent":4,"type":null}]
- *  - ts.getChildren(5) // []
- *  - ts.getChildren(2) // [{"id":4,"parent":2,"type":"test"},{"id":5,"parent":2,"type":"test"},{"id":6,"parent":2,"type":"test"}]
- *  - ts.getAllChildren(2) // [{"id":4,"parent":2,"type":"test"},{"id":5,"parent":2,"type":"test"},{"id":6,"parent":2,"type":"test"},{"id":7,"parent":4,"type":null},{"id":8,"parent":4,"type":null}]
- *
- *  - ts.getAllParents(7) // [{"id":4,"parent":2,"type":"test"},{"id":2,"parent":1,"type":"test"},{"id":1,"parent":"root"}]
- */
+- ts.getAll() // [{"id":1,"parent":"root"},{"id":2,"parent":1,"type":"test"},{"id":3,"parent":1,"type":"test"},{"id":4,"parent":2,"type":"test"},{"id":5,"parent":2,"type":"test"},{"id":6,"parent":2,"type":"test"},{"id":7,"parent":4,"type":null},{"id":8,"parent":4,"type":null}]
+- ts.getItem(7) // {"id":7,"parent":4,"type":null}
+- ts.getChildren(4) // [{"id":7,"parent":4,"type":null},{"id":8,"parent":4,"type":null}]
+- ts.getChildren(5) // []
+- ts.getChildren(2) // [{"id":4,"parent":2,"type":"test"},{"id":5,"parent":2,"type":"test"},{"id":6,"parent":2,"type":"test"}]
+- ts.getAllChildren(2) // [{"id":4,"parent":2,"type":"test"},{"id":5,"parent":2,"type":"test"},{"id":6,"parent":2,"type":"test"},{"id":7,"parent":4,"type":null},{"id":8,"parent":4,"type":null}]
+- ts.getAllParents(7) // [{"id":4,"parent":2,"type":"test"},{"id":2,"parent":1,"type":"test"},{"id":1,"parent":"root"}]
